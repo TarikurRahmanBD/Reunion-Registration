@@ -1,65 +1,103 @@
 # Sunshine Model High School - Reunion 2026 Registration Portal
 
-This is a modern and responsive web registration form for the **Eid-ul-Adha Reunion 2026** of Sunshine Model High School. Alumni can seamlessly submit their details through this form to complete their registration.
+A simple and responsive web application for collecting reunion registration details from alumni and participants. This project provides a clean registration form where users can submit their personal information, batch details, and T-shirt size, and the data is sent directly via EmailJS.
 
-## 🚀 Features
+## Overview
 
-- **Modern Design:** Built with Tailwind CSS, featuring an attractive dark mode and a glassmorphism user interface[cite: 2].
-- **Real-Time Submission:** Powered by EmailJS to send data directly to your email without needing a backend server[cite: 1, 2].
-- **User Friendly:** Includes a dynamic loading state ("প্রসেসিং হচ্ছে...") during submission and instant alert messages for success or error feedback.
-- **Fully Responsive:** Optimized to look and work great across all devices, including mobiles, tablets, and desktops[cite: 2].
+This registration portal is designed for the Sunshine Model High School Eid-ul-Adha Reunion 2026 event. It helps organizers collect attendee information in a fast, organized, and user-friendly way without needing a backend server.
 
-## 🛠️ Technologies Used
+## Features
 
-- **HTML5:** For the page structure and form layout[cite: 2].
-- **Tailwind CSS (v4):** For modern styling and responsiveness via CDN[cite: 2].
-- **JavaScript (ES6):** For form handling, validation, and submission logic[cite: 1, 2].
-- **EmailJS SDK:** For client-side email transmission[cite: 1, 2].
+- Modern dark-themed UI with a glassmorphism-inspired design
+- Fully responsive layout for mobile, tablet, and desktop screens
+- Clean registration form for attendee details
+- Real-time submission using EmailJS
+- Loading state and success/error feedback messages
+- Simple deployment without a server-side backend
 
-## 📁 Project Structure
+## Technologies Used
+
+- HTML5
+- Tailwind CSS v4
+- JavaScript (ES6)
+- EmailJS
+
+## Project Structure
 
 ```text
-├── index.html       # Main web page (UI)
-├── app.js           # Email submission and form handling logic
-└── README.md        # Project documentation
+├── index.html       # UI for the reunion registration form
+├── app.js           # Form logic and EmailJS submission
+├── README.md        # Project documentation
+├── LICENSE          # License file
 ```
-## ⚙️ Setup and Configuration
 
-Follow these steps to configure and run the project locally with your own accounts:
+## How It Works
 
-### 1. Email Service Configuration (EmailJS)
-1. Create an account on [EmailJS](https://www.emailjs.com/).
-2. Add an **Email Service** (e.g., Gmail) from your dashboard and copy the **Service ID**.
-3. Create a new **Email Template**. Use the following exact variables inside the template body to receive the form data correctly:
-   - `{{full_name}}`[cite: 1]
-   - `{{user_email}}`[cite: 1]
-   - `{{phone_number}}`[cite: 1]
-   - `{{current_location}}`[cite: 1]
-   - `{{ssc_batch}}`[cite: 1]
-   - `{{tshirt_size}}`[cite: 1]
-4. Save the template and copy its **Template ID**.
-5. Go to your Account Settings and copy your **Public Key**.
+1. User fills out the reunion form.
+2. The form data is captured in JavaScript.
+3. The data is sent through EmailJS using a configured service and template.
+4. The organizer receives the submitted information in their email inbox.
 
-### 2. Update the Source Code
-Open your `app.js` file and replace the placeholders with your collected keys[cite: 1]:
+## Local Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/TarikurRahmanBD/Reunion-Registration.git
+cd Reunion-Registration
+```
+
+2. Open the project folder.
+3. Launch `index.html` in a browser.
+
+## EmailJS Configuration
+
+To make the form work, you need to configure EmailJS in `app.js`.
+
+### Step 1: Create EmailJS Account
+
+- Go to [EmailJS](https://www.emailjs.com/)
+- Create an account
+- Set up an email service (for example, Gmail)
+- Create an email template
+
+### Step 2: Add Required Template Variables
+
+Use these variables in your EmailJS template:
+
+- `{{full_name}}`
+- `{{user_email}}`
+- `{{phone_number}}`
+- `{{current_location}}`
+- `{{ssc_batch}}`
+- `{{tshirt_size}}`
+
+### Step 3: Update the JavaScript
+
+Open `app.js` and replace the placeholders:
 
 ```javascript
-// Initialize EmailJS
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Paste your Public Key here
-})(); //[cite: 1]
+    emailjs.init("YOUR_PUBLIC_KEY");
+})();
 
-// ... (rest of the code)
-
-// Replace placeholders with your actual EmailJS Dashboard IDs
-emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData) //
+emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
 ```
 
-## 💻 How to Run
+## Run the Project
 
-1. Download or clone all project files into a folder on your computer.
-2. Simply double-click the `index.html` file to open it in any modern web browser.
-3. Fill out the form fields and click the **"রেজিস্ট্রেশন সম্পন্ন করুন"** (Complete Registration) button to test the configuration[cite: 1, 2].
+Simply open `index.html` in any modern browser. Fill in the form and click the submit button to test the registration flow.
+
+## Notes
+
+- This project is a frontend-only registration system.
+- It is ideal for events where organizers want a lightweight, quick-to-deploy form.
+- If you want backend storage or database support, this can be extended in the future.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
-*Developed for Sunshine Model High School Reunion 2026.*
+
+Developed for Sunshine Model High School Reunion 2026.
